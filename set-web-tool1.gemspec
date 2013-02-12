@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'set-web-tools1'
+  s.name        = 'set-web-tool1'
   s.version     = '0.0.0.pre'
   s.date        = '2013-02-12'
   s.summary     = "A Gem based on watir and selenium-webdriver"
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
     'config/report_constants.rb',
     'config/settings.rb',
     'config/settings.rb.tpl',
-    'lib/set-web-tools1.rb',
+    'lib/set-web-tool1.rb',
     'lib/acceptance_test.rb',
     'lib/email.rb',
     'lib/server.rb',
