@@ -35,23 +35,4 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://github.com/espaciomore/set-web-tools1'
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to?( :required_rubygems_version= )
   
-  s.add_development_dependency  "hpricot"
-  s.add_development_dependency  "selenium-webdriver"
-  s.add_development_dependency  "watir-webdriver"
-  s.add_development_dependency  'json'
-  s.add_development_dependency  'net-ssh'
-  s.add_development_dependency  'net-scp'  
-  s.add_development_dependency  'fileutils'
-  s.add_development_dependency  'tlsmail'
-  s.add_development_dependency  'smtp_with_gmail'
-
-  s.add_runtime_dependency  "hpricot"
-  s.add_runtime_dependency  "selenium-webdriver"
-  s.add_runtime_dependency  "watir-webdriver"
-  s.add_runtime_dependency  'json'
-  s.add_runtime_dependency  'net-ssh'
-  s.add_runtime_dependency  'net-scp'  
-  s.add_runtime_dependency  'fileutils'
-  s.add_runtime_dependency  'tlsmail'
-  s.add_runtime_dependency  'smtp_with_gmail'
 end
