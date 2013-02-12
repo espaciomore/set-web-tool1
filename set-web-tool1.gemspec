@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     'run_test.rb',
     'server_run_test.rb',
     'test_scaffold.rb',
-    'set-web-tools1.gemspec',
+    'set-web-tool1.gemspec',
     'config/constants.rb',
     'config/report_constants.rb',
     'config/settings.rb',
