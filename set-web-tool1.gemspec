@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'set-web-tool1'
-  s.version     = '0.0.0.pre'
+  s.version     = '0.0.1'
   s.date        = '2013-02-12'
   s.summary     = "A Gem based on watir and selenium-webdriver"
   s.description = "A framework created  at intellisys for developing frontend user acceptance tests"
@@ -38,32 +38,24 @@ Gem::Specification.new do |s|
   s.add_development_dependency  "hpricot"
   s.add_development_dependency  "selenium-webdriver"
   s.add_development_dependency  "watir-webdriver"
-  s.add_development_dependency  'net/http'
-  s.add_development_dependency  'uri'
-  s.add_development_dependency  'socket'
   s.add_development_dependency  'date'
   s.add_development_dependency  'json'
-  s.add_development_dependency  'net/smtp'
-  s.add_development_dependency  'net/ssh'
-  s.add_development_dependency  'net/scp'  
+  s.add_development_dependency  'net-ssh'
+  s.add_development_dependency  'net-scp'  
   s.add_development_dependency  'fileutils'
   s.add_development_dependency  'tlsmail'
   s.add_development_dependency  'date'
-  s.add_development_dependency  'timeout'
+  s.add_development_dependency  'smtp_with_gmail'
 
   s.add_runtime_dependency  "hpricot"
   s.add_runtime_dependency  "selenium-webdriver"
   s.add_runtime_dependency  "watir-webdriver"
-  s.add_runtime_dependency  'net/http'
-  s.add_runtime_dependency  'uri'
-  s.add_runtime_dependency  'socket'
   s.add_runtime_dependency  'date'
   s.add_runtime_dependency  'json'
-  s.add_runtime_dependency  'net/smtp'
-  s.add_runtime_dependency  'net/ssh'
-  s.add_runtime_dependency  'net/scp'  
+  s.add_runtime_dependency  'net-ssh'
+  s.add_runtime_dependency  'net-scp'  
   s.add_runtime_dependency  'fileutils'
   s.add_runtime_dependency  'tlsmail'
   s.add_runtime_dependency  'date'
-  s.add_runtime_dependency  'timeout'  
+  s.add_runtime_dependency  'smtp_with_gmail'
 end
