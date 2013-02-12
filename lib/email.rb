@@ -1,4 +1,4 @@
-class Config_Email   
+class Lib_Email   
   def initialize(options=nil)
     @options = Hash.new
     if options == nil
@@ -30,7 +30,7 @@ class Config_Email
     msgstr << "--ENDBODY--"
     
     Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-    Net::SMTP.start('smtp.gmail.com', 587, 'gmail.com', Configuration::GMAIL_USER, Configuration::GMAIL_PASS, :plain) do |smtp|
+    Net::SMTP.start('smtp.gmail.com', 587, 'gmail.com', Config_Settings::GMAIL_USER, Config_Settings::GMAIL_PASS, :plain) do |smtp|
       @options[:recipients].each do |recipient|
         smtp.send_message(msgstr, @options[:sender], recipient)
       end

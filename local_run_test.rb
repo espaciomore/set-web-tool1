@@ -56,7 +56,7 @@ class LocalRunTest
     @console_error_message = "
     The syntax of this command is:\truby run_test.rb [OPTIONS] | [CLASSNAMES]\n
     Examples:\n 
-    > ruby run_test.rb --prod --ff Tests_SchoolProfiles_K12ProfileTest
+    > ruby run_test.rb --prod --ff Tests_Google_ExampleTest
     > ruby server_run_test.rb --qa
     > ruby client_run_test.rb
     
@@ -70,8 +70,8 @@ class LocalRunTest
 
   def defineGlobalVariables()
     #!  Define global variables
-    if not File.exists?("config/Config_Settings.rb")
-      system("sed -e 's/QA/DEV/g' config/Config_Settings.rb.tpl > config/Config_Settings.rb;")
+    if not File.exists?("config/settings.rb")
+      system("sed -e 's/QA/DEV/g' config/settings.rb.tpl > config/settings.rb;")
     end
 
     $validArguments = []
@@ -152,7 +152,7 @@ class LocalRunTest
   end
 
   def initReport()
-    $report.openReport(Config_Paths::REPORT_FOLDER_PATH + '/overall_report')
+    $report.openReport(Config_Settings::ROOT_FOLDER_PATH + '/reports/overall_report')
   end
 
   def saveReport()

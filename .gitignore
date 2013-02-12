@@ -1,0 +1,7 @@
+./reports
+./reports/*
+./reports/*.*
+./sockets
+./sockets/reports/*
+./sockets/reports/*.*
+./config/settings.rb

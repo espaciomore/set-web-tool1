@@ -1,18 +1,33 @@
 class Tests_Google_ExampleTest < Lib_AcceptanceTest
-  def getReportPath
-    raise NotImplementedException
+  def test_report_path
+    Config_Settings::REPORT_FOLDER_PATH  + "/google/google_homepage"
   end
   
-  def testLoggedIn
-    raise NotImplementedException
+  def test_logged_in
+    false
   end
   
-  def testSite
-    raise NotImplementedException
+  def test_target_site
+    "http://www.google.com"
   end
   
-  def runTest
-    raise NotImplementedException
-  end                  
+  def test_exec
+    update_report("Test that the page is loading", page_loaded)
+  end        
+  
+  private
+  
+  def page_loaded
+    Proc.new do
+      begin
+        raise "verify page is loaded" if not @watir_helper.urlLike(test_target_site)
+        success = true
+      rescue Exception => e
+        puts "FAILED to #{e}"
+        success = false
+      end
+      success
+    end
+  end          
 end
   

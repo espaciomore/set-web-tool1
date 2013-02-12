@@ -16,7 +16,7 @@ class Lib_TaskScheduler
       #@@execs << "touch #{test}"
       if isTest(test)  
         get_Lock
-        addIt(test,isThread)
+        addIt( test, isThread )
         put_Lock
       else          
         test.new.test
@@ -50,8 +50,8 @@ class Lib_TaskScheduler
   def runTests(isServer=false)  
     if isServer
       _server = Lib_Server.new
-      client_list = ($target_browser==:ie ? Configuration::CLIENTS_IE : (Configuration::CLIENTS + Configuration::CLIENTS_IE))
-      if _server.testService( client_list, @@tests, Configuration::PORT )
+      client_list = ($target_browser==:ie ? Config_Settings::CLIENTS_IE : (Config_Settings::CLIENTS + Config_Settings::CLIENTS_IE))
+      if _server.testService( client_list, @@tests, Config_Settings::PORT )
         _server.waitingForReport
       end
     else     
@@ -87,10 +87,10 @@ class Lib_TaskScheduler
   
   def addIt test,isThread   
     if (!isThread or !usingThreads?)
-      (@@tests << test)
+      (@@tests << test )
     end
     if (isThread and usingThreads?)    
-      (@@threads << test)
+      (@@threads << test )
     end
     return nil
   end

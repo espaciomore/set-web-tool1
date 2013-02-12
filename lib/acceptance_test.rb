@@ -13,20 +13,20 @@ class Lib_AcceptanceTest
   end
   
   def test 
-    if(testLoggedIn && Config_Settings::TEST_LOGGED_IN)  
-      showConsoleInfo
-      self::processTest( logged_in )
+    if(test_logged_in && Config_Settings::TEST_LOGGED_IN)  
+      show_console_info
+      self::process_test( logged_in )
     end
          
-    if(testLoggedOut && !$login)
-      showConsoleInfo
-      self::processTest( logged_out )
+    if(test_logged_out && !$login)
+      show_console_info
+      self::process_test( logged_out )
     end          
     
     return true
   end
   
-  def showConsoleInfo
+  def show_console_info
     print "\nRunning #{self.class}" 
     #********************************************************
     if $thread      
@@ -36,16 +36,16 @@ class Lib_AcceptanceTest
     #********************************************************  
   end
   
-  def processTest withLogin
-    if (self::beforeSetUp)
-      self::setUp
-      self::afterSetUp      
-      @watir_helper.goto testSite 
-      if (self::caughtTest)
-        self::beforeTearDown
-        self::tearDown
+  def process_test withLogin
+    if (self::before_set_up)
+      self::set_up
+      self::after_set_up      
+      @watir_helper.goto test_target_site 
+      if (self::test_safe_exec)
+        self::before_tear_down
+        self::tear_down
       end
-      self::afterTearDown
+      self::after_tear_down
     end
     
     #********************************************************
@@ -56,7 +56,7 @@ class Lib_AcceptanceTest
     #********************************************************
   end  
   
-  def beforeSetUp
+  def before_set_up
     $isLoggedIn = false
     begin
       client = Selenium::WebDriver::Remote::Http::Default.new
@@ -65,6 +65,7 @@ class Lib_AcceptanceTest
       @browser.window.resize_to(1280,900) # => @browser.send_keys :f11
       @report = Lib_Tools_TestReportsFactory.new()  
       @generalTools = Lib_Tools.new(self)
+      @watir_helper = Lib_Tools_WatirHelper.new(self) 
       @watir_helper.clearCookies     
       _safeSetUp = true
     rescue
@@ -77,19 +78,22 @@ class Lib_AcceptanceTest
     return _safeSetUp
   end
     
-  def testSite
+  def test_target_site
     "#{$target_server}/"
   end
   
-  def afterSetUp
+  def after_set_up
   end
 
-  def beforeTearDown
+  def before_tear_down
   end
 
-  def afterTearDown
+  def tear_down
+  end
+  
+  def after_tear_down
     begin
-      if $target_browser==Constants::IE
+      if $target_browser==Config_Constants::IE
         @browser.quit
       else
         @browser.close 
@@ -100,10 +104,10 @@ class Lib_AcceptanceTest
     end
   end
 
-  def caughtTest
+  def test_safe_exec
     begin
-      @report.createReport(self::getReportPath)
-      self::runTest
+      @report.createReport(self::test_report_path)
+      self::test_exec
       print $thread?"\nFinishing #{self.class}":" Done"      
       saveTest = true
     rescue      
@@ -117,25 +121,22 @@ class Lib_AcceptanceTest
     return saveTest
   end
 
-  def setUp    
+  def set_up    
   end
 
-  def getReportPath
+  def test_report_path
     raise NotImplementedError
   end
 
-  def runTest
+  def test_exec
     raise NotImplementedError
-  end
-
-  def tearDown
   end
   
-  def testLoggedIn
+  def test_logged_in
     true
   end
 
-  def testLoggedOut
+  def test_logged_out
     true
   end
   

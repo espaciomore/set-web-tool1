@@ -3,13 +3,15 @@ class Config_Settings
   STD_OUTPUT = true
   
   # Server to run the test
-  TEST_SERVER = Constants::DEV
+  TEST_SERVER = Config_Constants::DEV
 
   # Browser to run the test
-  TEST_BROWSER = Constants::FIREFOX
+  TEST_BROWSER = Config_Constants::FIREFOX
 
   #Folder root
   ROOT_FOLDER_PATH = File.dirname(__FILE__) + "/.."
+  REPORT_FOLDER_PATH = ROOT_FOLDER_PATH + "/reports"
+  SOCKET_REPORT_FOLDER_PATH = ROOT_FOLDER_PATH + "/sockets/reports"
 
   # Wait timeout for browser requests and wait timer
   WAIT_TIMEOUT = 10
