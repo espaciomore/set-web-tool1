@@ -1,5 +1,4 @@
 class LocalRunTest
-
   def initialize()
     defineScopeVariable()
     defineGlobalVariables()
@@ -71,20 +70,20 @@ class LocalRunTest
 
   def defineGlobalVariables()
     #!  Define global variables
-    if not File.exists?("config/configuration.rb")
-      system("sed -e 's/QA/DEV/g' config/configuration.rb.tpl > config/configuration.rb;")
+    if not File.exists?("config/Config_Settings.rb")
+      system("sed -e 's/QA/DEV/g' config/Config_Settings.rb.tpl > config/Config_Settings.rb;")
     end
 
     $validArguments = []
-    $_usingStdOutput = Configuration::STD_OUTPUT
+    $_usingStdOutput = Config_Settings::STD_OUTPUT
     $_machine = ''
     $stdOutput = Lib_Tools_StdOutputProxy.new
     $login = false
     $user = ''
     $runnungThread = false
     $saveResults = false
-    $target_server = Configuration::TEST_SERVER
-    $target_browser = Configuration::TEST_BROWSER
+    $target_server = Config_Settings::TEST_SERVER
+    $target_browser = Config_Settings::TEST_BROWSER
     $thread = false
     $report = Lib_Tools_OverallReportsFactory.new
     $scheduler = Lib_TaskScheduler.new
@@ -102,27 +101,27 @@ class LocalRunTest
         elsif (!@options['--dev'] and param == "--dev")
           @options['--dev'] = true
           $validArguments << param
-          $target_server = Constants::DEV
+          $target_server = Config_Constants::DEV
         elsif (!@options['--qa'] and param == "--qa")
           @options['--qa'] = true
           $validArguments << param
-          $target_server = Constants::QA
+          $target_server = Config_Constants::QA
         elsif (!@options['--prod'] and param == "--prod")
           @options['--prod'] = true
           $validArguments << param
-          $target_server = Constants::PROD
+          $target_server = Config_Constants::PROD
         elsif (!@options['--ff'] and param == "--ff")
           @options['--ff'] = true
           $validArguments << param
-          $target_browser = Constants::FIREFOX
+          $target_browser = Config_Constants::FIREFOX
         elsif (!@options['--ie'] and param == "--ie")
           @options['--ie'] = true
           $validArguments << param
-          $target_browser = Constants::IE
+          $target_browser = Config_Constants::IE
         elsif (!@options['--chrome'] and param == "--chrome")
           @options['--chrome'] = true
           $validArguments << param
-          $target_browser = Constants::CHROME
+          $target_browser = Config_Constants::CHROME
         elsif (!@options['--login'] and param == "--login")
           @options['--login'] = true
           $validArguments << param

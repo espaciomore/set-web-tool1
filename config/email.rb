@@ -1,13 +1,9 @@
-require 'net/smtp'
-require 'tlsmail'
-
-class Config_Email 
-  
+class Config_Email   
   def initialize(options=nil)
     @options = Hash.new
     if options == nil
-      @options[:sender] = 'thisissparta@intellisys.com.do'
-      @options[:recipients] = 'mcerda@intellisys.com.do'
+      @options[:sender] = Config_Settings::DEFAULT_USER
+      @options[:recipients] = Config_Settings::DEFAULT_USER
       @options[:body] = "An Error has ocurred while running the regression tests for Noodle Site.\n\nFor more information see the attachments."
       @options[:subject] = 'UAT Notification'
       @options[:attachment] = ""

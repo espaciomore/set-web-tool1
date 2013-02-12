@@ -4,18 +4,17 @@ require "selenium-webdriver"
 require "watir-webdriver"
 require 'net/http'
 require 'uri'
+require 'socket'
+require 'date'
 require 'json'
+require 'net/smtp'
 require 'net/ssh'
 require 'net/scp'  
 require 'fileutils'
+require 'tlsmail'
+require 'date'
+require 'timeout'
 
-autoload(:Configuration, File.dirname(__FILE__) + "/configuration")
-
-def pr(text)
-  if Configuration::DEBUG
-    puts text
-  end
-end
 
 def getFilePath(klassName)
   path = klassName.split('_').collect! do |name|

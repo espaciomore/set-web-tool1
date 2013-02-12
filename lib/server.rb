@@ -1,13 +1,3 @@
-#!/usr/bin/env ruby
-#
-# Created on Nov / 27 / 2012
-#
-# @author WilliamCabrera
-require "rubygems"
-require "json"
-require "socket"
-require 'timeout'
-
 class Lib_Server
   
   def initialize

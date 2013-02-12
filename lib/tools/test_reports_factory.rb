@@ -27,7 +27,7 @@ class Lib_Tools_TestReportsFactory < Lib_Tools_Reports
     
     @head = 
        '<meta content=text/html; charset=ISO-8859-1 http-equiv=content-type>
-        <title>Noodle - Acceptance Test Report</title>
+        <title>Company Name - Acceptance Test Report</title>
         <style type="text/CSS">'+Config_ReportConstants::CSS+'</style>'
              
     @body = 
@@ -142,7 +142,7 @@ class Lib_Tools_TestReportsFactory < Lib_Tools_Reports
     @body << '</ul>
             <hr width=100% size=1px />
             <div class=footer>
-                <p class=small_text>Noodle</p>
+                <p class=small_text>Company Name</p>
             </div>'  
     
     html = "<head>#{@head}</head>"

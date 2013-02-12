@@ -1,12 +1,8 @@
-#!/usr/bin/env ruby
-#
-# Created on Nov / 12 / 2012
-#
-# @author ManuelCerda
-require File.dirname(__FILE__) + '/config/configuration.rb'
-require File.dirname(__FILE__) + "/lib/client.rb"
+require File.dirname(__FILE__) + "/config/bootstrap.rb"
 
 class ClientRunTest
+  
+  include Lib_Modules_ClientConnection
   
   def initialize()
     STDOUT.sync = true
@@ -18,8 +14,7 @@ class ClientRunTest
       $stdout.flush
       system("git pull")
           
-      run_test = Lib_Client.new()
-      run_test.startServerSocket Configuration::PORT
+      startServerSocket Configuration::PORT
       
       if ([0,6].include?(Date.today.wday))
         break 

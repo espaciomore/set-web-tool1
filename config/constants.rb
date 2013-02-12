@@ -1,9 +1,9 @@
-class Constants
+class Config_Constants
   # SERVER CONSTANTS
-  LOCAL = 'http://www.noodle.local'
-  DEV = 'http://noodle.intellisys.com.do'
-  QA = 'http://noodleqa.intellisys.com.do'
-  PROD = 'http://www.noodle.org'
+  LOCAL = 'http://local.google.com' # => Local web-server
+  DEV = 'http://dev.google.dev' # => Development web-server
+  QA = 'http://qa.google.com' # => QA web-web server if any
+  PROD = 'http://www.google.com' # => Production web-server
 
   # BROWSER CONSTANTS
   FIREFOX = :ff
