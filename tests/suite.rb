@@ -3,6 +3,7 @@ class Tests_Suite
   
   def test
     @tests = [
+              Tests_Google_ExampleTest,
             ]
     
     $scheduler.add(@tests)   

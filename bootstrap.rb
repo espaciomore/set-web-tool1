@@ -20,7 +20,7 @@ def getFilePath(klassName)
   path = klassName.split('_').collect! do |name|
     name.split(/(?=[A-Z])/).join('_')
   end
-  return File.dirname(__FILE__) + "/.." + File::SEPARATOR + path.join('/').downcase
+  return File.dirname(__FILE__) + File::SEPARATOR + path.join(File::SEPARATOR).downcase
 end
 
 class Object

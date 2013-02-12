@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/config/bootstrap.rb"
+require File.dirname(__FILE__) + "/bootstrap.rb"
 
 @@params = ARGV.join(' ')
 @@_endless = @@params.include?('--endless')
