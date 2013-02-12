@@ -33,7 +33,8 @@ class Config_Settings
   # Master / Slave Arquitecture
   CLIENTS = ["127.0.0.1"] # => IP addresses for remote hosts running client_run_test.rb
   CLIENTS_IE = ["127.0.0.1"] # => IP addresses for remote hosts running client_run_test.rb under windows OS
-  USERNAME = 'ssh-username' # => Username used by client to connect to server running server_run_test.rb
+  USERNAME = 'ssh-username' # => SSH username used by client to connect to server running server_run_test.rb
+  HOST_PWD = 'password' # => SSH password used by client to connect to server running server_run_test.rb
   HOST = '127.0.0.1' # => IP address for remote server running server_run_test.rb
   PORT = 15000 # => TCPSocket port  
 end

@@ -14,7 +14,7 @@ class ClientRunTest
       $stdout.flush
       system("git pull")
           
-      startServerSocket Configuration::PORT
+      startServerSocket Config_Settings::PORT
       
       if ([0,6].include?(Date.today.wday))
         break 

@@ -37,7 +37,7 @@ class Lib_Tools_Reports
   def send_report() 
     begin
       dir = '/var/www/html/continuous_delivery/acceptance_tests/sockets/reports'
-      Net::SSH.start("10.0.0.29", "noodleqa", :password => "welc0me") do |ssh|
+      Net::SSH.start(Config_Settings::HOST, Config_Settings::USERNAME, :password => Config_Settings::HOST_PWD) do |ssh|
         ssh.scp.upload!("#{@absolutePath}", "#{dir}#{@finalPath}")
       end        
     rescue Exception => e

@@ -152,7 +152,7 @@ class LocalRunTest
   end
 
   def initReport()
-    $report.openReport(Config_Settings::ROOT_FOLDER_PATH + '/reports/overall_report')
+    $report.openReport(Config_Settings::REPORT_FOLDER_PATH + '/overall_report')
   end
 
   def saveReport()
