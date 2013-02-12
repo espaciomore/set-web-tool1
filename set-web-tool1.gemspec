@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'set-web-tool1'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.date        = '2013-02-12'
   s.summary     = "A Gem based on watir and selenium-webdriver"
   s.description = "A framework created  at intellisys for developing frontend user acceptance tests"
