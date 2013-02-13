@@ -1,26 +1,31 @@
-require "rubygems"
-require "hpricot"
-require "selenium-webdriver"
-require "watir-webdriver"
-require 'net/http'
-require 'uri'
-require 'socket'
-require 'date'
-require 'json'
-require 'net/smtp'
-require 'net/ssh'
-require 'net/scp'  
-require 'fileutils'
-require 'tlsmail'
-require 'date'
-require 'timeout'
-
+begin
+	require "rubygems"
+	require "hpricot"
+	require "selenium-webdriver"
+	require "watir-webdriver"
+	require 'net/http'
+	require 'uri'
+	require 'socket'
+	require 'date'
+	require 'json'
+	require 'net/smtp'
+	require 'net/ssh'
+	require 'net/scp'  
+	require 'fileutils'
+	require 'tlsmail'
+	require 'date'
+	require 'timeout'
+rescue LoadError => error
+	puts "Missing dependencies:"
+	raise error
+end
 
 def getFilePath(klassName)
   path = klassName.split('_').collect! do |name|
     name.split(/(?=[A-Z])/).join('_')
   end
-  return File.dirname(__FILE__) + File::SEPARATOR + path.join(File::SEPARATOR).downcase
+  s = File::SEPARATOR
+  return File.dirname(__FILE__) + s + path.join(s).downcase
 end
 
 class Object
