@@ -4,4 +4,12 @@ rescue LoadError => error
 	puts "#{error}"
 end
 
-# => After loading the bootstrap you can do something like: ClientRunTest.new
+class << self
+	def hello
+		"hi"
+	end
+	
+	def create_test_scaffold(root_path, klass_name)
+		TestScaffold.new(root_path, klass_name)
+	end
+end

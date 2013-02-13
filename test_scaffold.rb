@@ -3,9 +3,10 @@ class TestScaffold
   include Lib_Modules_NameTranslator
   
   def initialize
-    begin
-      klass_name = ARGV[0]
-      
+  end
+  
+  def initialize(root_path, klass_name)
+    begin      
       scaffolding = %Q{class #{klass_name} < Lib_AcceptanceTest
   def getReportPath
     raise NotImplementedException
@@ -24,12 +25,12 @@ class TestScaffold
   end                  
 end
       }
-      
+      s = File::SEPARATOR
       full_path = explode_class_name(klass_name)
       file_name = "#{full_path.pop}.rb"
-      FileUtils.mkdir_p full_path.join('/')
+      FileUtils.mkdir_p full_path.join(s)
       
-      File.open(File.dirname(__FILE__)+'/'+full_path.join('/')+'/'+file_name, 'w') do |f|
+      File.open(root_path +s+ full_path.join(s) +s+ file_name, 'w') do |f|
         f.write(scaffolding)
       end
     rescue Exception => e
