@@ -2,8 +2,8 @@ class Libs_Email
   def initialize(options=nil)
     @options = Hash.new
     if options == nil
-      @options[:sender] = Config_Settings::DEFAULT_USER
-      @options[:recipients] = Config_Settings::DEFAULT_USER
+      @options[:sender] = $settings.default_user
+      @options[:recipients] = $settings.default_user
       @options[:body] = "An Error has ocurred while running the regression tests for Noodle Site.\n\nFor more information see the attachments."
       @options[:subject] = 'UAT Notification'
       @options[:attachment] = ""
@@ -30,7 +30,7 @@ class Libs_Email
     msgstr << "--ENDBODY--"
     
     Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-    Net::SMTP.start('smtp.gmail.com', 587, 'gmail.com', Config_Settings::GMAIL_USER, Config_Settings::GMAIL_PASS, :plain) do |smtp|
+    Net::SMTP.start('smtp.gmail.com', 587, 'gmail.com', $settings.gmail_user, $settings.gmail_pass, :plain) do |smtp|
       @options[:recipients].each do |recipient|
         smtp.send_message(msgstr, @options[:sender], recipient)
       end

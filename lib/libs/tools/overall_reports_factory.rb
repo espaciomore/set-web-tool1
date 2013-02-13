@@ -19,7 +19,7 @@ class Libs_Tools_OverallReportsFactory < Libs_Tools_Reports
     strTotalReport = reportName + strTime
     _fileName += strTime
 
-    re = Regexp.compile(Regexp.escape(Config_Settings::REPORT_FOLDER_PATH))
+    re = Regexp.compile(Regexp.escape( $settings.report_folder_path ))
     baseUrl_fileName = strTotalReport.gsub(/#{re}?/,'')
     @finalPath = baseUrl_fileName
     # Create the HTML report
@@ -200,11 +200,11 @@ class Libs_Tools_OverallReportsFactory < Libs_Tools_Reports
       send_report
     end
     
-    if Config_Settings::EMAIL_NOTIFICATION
+    if $settings.email_notification
       begin
         options = Hash.new
-        options[:sender] = Config_Settings::GMAIL_USER
-        options[:recipients] = Config_Settings::RECEPIENTS
+        options[:sender] = $settings.gmail_user
+        options[:recipients] = $settings.recepients
         options[:body] = "\nRegression Tests have finished running on #{$target_server}.\n\n#{@email_report}\n\nFor more information see the attachments."
         options[:subject] = 'UAT Notification'
         require 'base64'

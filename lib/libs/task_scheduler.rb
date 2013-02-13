@@ -49,17 +49,18 @@ class Libs_TaskScheduler
   
   def runTests(isServer=false)  
     if isServer
-      _server = Lib_Server.new
-      client_list = ($target_browser==:ie ? Config_Settings::CLIENTS_IE : (Config_Settings::CLIENTS + Config_Settings::CLIENTS_IE))
-      if _server.testService( client_list, @@tests, Config_Settings::PORT )
+      _server = Libs_Server.new
+      client_list = ($target_browser==:ie ? $settings.clients_ie : ($settings.clients + $settings.clients_ie))
+      if _server.testService( client_list, @@tests, $settings.port )
         _server.waitingForReport
       end
     else     
       @@tests.each do |test_class|
         begin
-          test_class.new.test
-        rescue
-          puts "\nError running #{test_class}"
+          instance_eval File.open(getFilePath( test_class )+'.rb').read 
+          Object.const_get(test_class).new.test
+        rescue LoadError => error
+          puts "\nError running #{test_class}: #{error}"
         end  
       end   
       #system @@execs.join(';')    

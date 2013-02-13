@@ -147,7 +147,7 @@ class LocalRunTest
           # => ignore within this scope         
         else
           begin            
-            @_tests << Object.const_get(param)
+            @_tests << param if param.include?('Tests')
           rescue
             abort(@console_error_message)
           end

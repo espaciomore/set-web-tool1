@@ -17,7 +17,7 @@ class Libs_Tools_TestReportsFactory < Libs_Tools_Reports
     strTotalReport = reportName + strTime
     _fileName += strTime
     
-    re = Regexp.compile(Regexp.escape(Config_Settings::REPORT_FOLDER_PATH))
+    re = Regexp.compile(Regexp.escape( $settings.report_folder_path ))
     baseUrl_fileName = strTotalReport.gsub(/#{re}?/,'') 
     @finalPath = baseUrl_fileName
     # Create the HTML report

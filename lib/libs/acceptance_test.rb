@@ -13,7 +13,7 @@ class Libs_AcceptanceTest
   end
   
   def test 
-    if(test_logged_in && Config_Settings::TEST_LOGGED_IN)  
+    if(test_logged_in && $settings.test_logged_in)  
       show_console_info
       self::process_test( logged_in )
     end
@@ -68,11 +68,10 @@ class Libs_AcceptanceTest
       @watir_helper = Libs_Tools_WatirHelper.new(self) 
       @watir_helper.clearCookies     
       _safeSetUp = true
-    rescue
+    rescue Exception => error
       _safeSetUp = false
-      error = "\n\tCrashed! \nReason: " + $!.to_s
-      if(Config_Settings::DEBUG)
-        puts error
+      if( $settings.debug )
+        puts "\n\tCrashed! \nReason: ", error
       end
     end
     return _safeSetUp
@@ -113,7 +112,7 @@ class Libs_AcceptanceTest
     rescue      
       saveTest = false
       error = "\n\tCrashed! \nReason: " + $!.to_s
-      if(Config_Settings::DEBUG)
+      if( $settings.debug )
         puts error
       end
       update_report(error, "CRASHED")

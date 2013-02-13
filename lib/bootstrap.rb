@@ -26,10 +26,9 @@ def getFilePath(klassName)
   end
   s = File::SEPARATOR
   if $settings and path.include?('Tests')
-    puts $settings.root_folder_path
-    $settings.root_folder_path + s + path.join(s).downcase
+    return $settings.root_folder_path + s + path.join(s).downcase
   end
-  return __GEM__ + s + path.join(s).downcase
+  return File.expand_path( File.dirname(__FILE__) ) + s + path.join(s).downcase
 end
 
 class Object

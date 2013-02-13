@@ -11,7 +11,7 @@ class Libs_Tools_Reports
   attr_accessor :testCount 
   attr_accessor :stringToWrite
   
-  def initialize()    
+  def initialize()
   end
   
   def addToReport(step, arg, tool = 'none', action = 'none')
