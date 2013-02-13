@@ -25,7 +25,11 @@ def getFilePath(klassName)
     name.split(/(?=[A-Z])/).join('_')
   end
   s = File::SEPARATOR
-  return File.dirname(__FILE__) + s + path.join(s).downcase
+  if $settings and path.include?('Tests')
+    puts $settings.root_folder_path
+    $settings.root_folder_path + s + path.join(s).downcase
+  end
+  return __GEM__ + s + path.join(s).downcase
 end
 
 class Object

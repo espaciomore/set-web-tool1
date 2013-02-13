@@ -77,18 +77,18 @@ class LocalRunTest
     begin
       $settings = settings
       $validArguments = []
-      $_usingStdOutput = Config_Settings::STD_OUTPUT
+      $_usingStdOutput = $settings.std_output
       $_machine = ''
-      $stdOutput = Lib_Tools_StdOutputProxy.new
+      $stdOutput = Libs_Tools_StdOutputProxy.new
       $login = false
       $user = ''
       $runnungThread = false
       $saveResults = false
-      $target_server = Config_Settings::TEST_SERVER
-      $target_browser = Config_Settings::TEST_BROWSER
+      $target_server = $settings.test_server
+      $target_browser = $settings.test_browser
       $thread = false
-      $report = Lib_Tools_OverallReportsFactory.new
-      $scheduler = Lib_TaskScheduler.new
+      $report = Libs_Tools_OverallReportsFactory.new
+      $scheduler = Libs_TaskScheduler.new
     rescue Exception => error
       puts "Error while setting global variables !"
       raise error
@@ -97,8 +97,7 @@ class LocalRunTest
   end
 
   def setUpOptions(args)
-    for i in 0..(args.size - 1) do
-      param = args[i]
+    args.each do |param|
       if (param != nil)
         if (!@options['--save-results'] and param == "--save-results")
           @options['--save-results'] = true
@@ -158,7 +157,7 @@ class LocalRunTest
   end
 
   def initReport()
-    $report.openReport( settings.report_folder_path +'/overall_report')
+    $report.openReport( $settings.report_folder_path + '/overall_report')
   end
 
   def saveReport()
