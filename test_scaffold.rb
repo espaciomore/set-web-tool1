@@ -1,13 +1,12 @@
-require File.dirname(__FILE__) + "/bootstrap.rb"
-
-include Lib_Modules_NameTranslator
-
-# require 'fileutils'
-
-begin
-  klass_name = ARGV[0]
+class TestScaffold
   
-  scaffolding = %Q{class #{klass_name} < Lib_AcceptanceTest
+  include Lib_Modules_NameTranslator
+  
+  def initialize
+    begin
+      klass_name = ARGV[0]
+      
+      scaffolding = %Q{class #{klass_name} < Lib_AcceptanceTest
   def getReportPath
     raise NotImplementedException
   end
@@ -24,15 +23,17 @@ begin
     raise NotImplementedException
   end                  
 end
-  }
-  
-  full_path = explode_class_name(klass_name)
-  file_name = "#{full_path.pop}.rb"
-  FileUtils.mkdir_p full_path.join('/')
-  
-  File.open(File.dirname(__FILE__)+'/'+full_path.join('/')+'/'+file_name, 'w') do |f|
-    f.write(scaffolding)
+      }
+      
+      full_path = explode_class_name(klass_name)
+      file_name = "#{full_path.pop}.rb"
+      FileUtils.mkdir_p full_path.join('/')
+      
+      File.open(File.dirname(__FILE__)+'/'+full_path.join('/')+'/'+file_name, 'w') do |f|
+        f.write(scaffolding)
+      end
+    rescue Exception => e
+      puts "FAILED to create test scaffold: #{e}"  
+    end
   end
-rescue Exception => e
-  puts "FAILED to create test scaffold: #{e}"  
 end

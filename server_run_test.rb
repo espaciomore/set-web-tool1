@@ -1,9 +1,7 @@
-require File.dirname(__FILE__) + "/bootstrap.rb"
-
-@@params = ARGV.join(' ')
-@@_endless = @@params.include?('--endless')
-
 class ServerRunTest
+
+  @@params = ARGV.join(' ')
+  @@_endless = @@params.include?('--endless')  
   
   def initialize()
     STDOUT.sync = true
@@ -22,5 +20,3 @@ class ServerRunTest
     end 
   end
 end
-
-run_test = ServerRunTest.new()

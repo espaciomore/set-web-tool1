@@ -1,5 +1,3 @@
-require File.dirname(__FILE__) + "/bootstrap.rb"
-
 class ClientRunTest
   
   include Lib_Modules_ClientConnection
@@ -7,6 +5,7 @@ class ClientRunTest
   def initialize()
     STDOUT.sync = true
     self::run()
+    exec('init 0')
   end   
 
   def run()
@@ -22,7 +21,3 @@ class ClientRunTest
     end 
   end
 end
-
-run_test = ClientRunTest.new()
-
-exec('init 0')
