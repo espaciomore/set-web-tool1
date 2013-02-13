@@ -1,4 +1,4 @@
-class Lib_Tools_WatirHelper 
+class Libs_Tools_WatirHelper 
   def initialize(tools)
     @browser = tools.browser   
   end

@@ -1,4 +1,4 @@
-module Lib_Modules_ClientConnection
+module Libs_Modules_ClientConnection
   def startServerSocket(port)
     print "\nWaiting for Connection on port: #{port}\n\r"
     serverFactory = TCPServer.new("0.0.0.0", port) # => It's necessary to bind to all IP address to avoid connection refused 

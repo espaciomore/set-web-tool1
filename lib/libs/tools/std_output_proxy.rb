@@ -1,6 +1,6 @@
-class Lib_Tools_StdOutputProxy
+class Libs_Tools_StdOutputProxy
   def initialize()
-    @stdOutput = Lib_Tools_StdOutput.new
+    @stdOutput = Libs_Tools_StdOutput.new
   end
   
   def testReport(reason, condition)

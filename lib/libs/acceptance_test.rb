@@ -1,4 +1,4 @@
-class Lib_AcceptanceTest
+class Libs_AcceptanceTest
   
   attr_accessor :browser
   attr_accessor :report
@@ -63,9 +63,9 @@ class Lib_AcceptanceTest
       client.timeout = 360 # =>  seconds - default is 60
       @browser = Watir::Browser.new $target_browser, :http_client => client      
       @browser.window.resize_to(1280,900) # => @browser.send_keys :f11
-      @report = Lib_Tools_TestReportsFactory.new()  
-      @generalTools = Lib_Tools.new(self)
-      @watir_helper = Lib_Tools_WatirHelper.new(self) 
+      @report = Libs_Tools_TestReportsFactory.new()  
+      @generalTools = Libs_Tools.new(self)
+      @watir_helper = Libs_Tools_WatirHelper.new(self) 
       @watir_helper.clearCookies     
       _safeSetUp = true
     rescue

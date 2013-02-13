@@ -1,4 +1,4 @@
-class Lib_Server
+class Libs_Server
   
   def initialize
     @@instance_locked = false # no instance has it  

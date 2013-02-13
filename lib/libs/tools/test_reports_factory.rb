@@ -1,4 +1,4 @@
-class Lib_Tools_TestReportsFactory < Lib_Tools_Reports
+class Libs_Tools_TestReportsFactory < Libs_Tools_Reports
   def openReport(reportName)
     @overallResult = 'PASSED'
     @content = Array.new

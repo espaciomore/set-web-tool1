@@ -1,12 +1,12 @@
 class TestScaffold
   
-  include Lib_Modules_NameTranslator
+  include Libs_Modules_NameTranslator
   
   def initialize
     begin
       klass_name = ARGV[0]
       
-      scaffolding = %Q{class #{klass_name} < Lib_AcceptanceTest
+      scaffolding = %Q{class #{klass_name} < Libs_AcceptanceTest
   def getReportPath
     raise NotImplementedException
   end

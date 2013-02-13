@@ -1,9 +1,9 @@
-class Lib_Tools
+class Libs_Tools
   attr_accessor :watir_helper
   
   def initialize(test_object)
     @ATest = test_object
-    @watir_helper = Lib_Tools_WatirHelper.new(self) 
+    @watir_helper = Libs_Tools_WatirHelper.new(self) 
   end
     
   def browser

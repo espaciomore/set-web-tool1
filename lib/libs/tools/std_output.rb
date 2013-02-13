@@ -1,4 +1,4 @@
-class Lib_Tools_StdOutput 
+class Libs_Tools_StdOutput 
   def testReport(reason, condition)
     begin
       $stderr.puts("#{reason} #{condition}")

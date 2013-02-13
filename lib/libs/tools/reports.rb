@@ -1,4 +1,4 @@
-class Lib_Tools_Reports 
+class Libs_Tools_Reports 
   attr_accessor :absolutePath  
   attr_accessor :finalPath  
   attr_accessor :testName

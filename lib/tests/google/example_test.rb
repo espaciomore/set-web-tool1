@@ -1,4 +1,4 @@
-class Tests_Google_ExampleTest < Lib_AcceptanceTest
+class Tests_Google_ExampleTest < Libs_AcceptanceTest
   def test_report_path
     Config_Settings::REPORT_FOLDER_PATH  + "/google/google_homepage"
   end

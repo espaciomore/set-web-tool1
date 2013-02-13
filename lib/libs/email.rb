@@ -1,4 +1,4 @@
-class Lib_Email   
+class Libs_Email   
   def initialize(options=nil)
     @options = Hash.new
     if options == nil

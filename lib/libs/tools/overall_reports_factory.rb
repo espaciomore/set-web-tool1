@@ -1,4 +1,4 @@
-class Lib_Tools_OverallReportsFactory < Lib_Tools_Reports
+class Libs_Tools_OverallReportsFactory < Libs_Tools_Reports
   def openReport(reportName)
     @overallResult = 'PASSED'
     @email_report = ''
@@ -209,7 +209,7 @@ class Lib_Tools_OverallReportsFactory < Lib_Tools_Reports
         options[:subject] = 'UAT Notification'
         require 'base64'
         options[:attachment] = "#{Base64.encode64(@stringToWrite)}"
-        emailHelper = Lib_Email.new(options)
+        emailHelper = Libs_Email.new(options)
         emailHelper.sendEmail()
       rescue
         #nothing

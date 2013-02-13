@@ -1,4 +1,4 @@
-module Lib_Modules_NameTranslator
+module Libs_Modules_NameTranslator
   def worm_case(str)
     str.split(/(?=[A-Z])/).map{|w| w.downcase }.join("_")
   end
