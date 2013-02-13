@@ -1,4 +1,4 @@
-class Lib_TaskScheduler 
+class Libs_TaskScheduler 
   
   attr_accessor :tests
   attr_accessor :threads

@@ -5,9 +5,9 @@ class TestScaffold
   def initialize
   end
   
-  def initialize(root_path, klass_name)
+  def initialize(settings, args)
     begin      
-      scaffolding = %Q{class #{klass_name} < Libs_AcceptanceTest
+      scaffolding = %Q{class #{args[0]} < Libs_AcceptanceTest
   def getReportPath
     raise NotImplementedException
   end
@@ -26,11 +26,12 @@ class TestScaffold
 end
       }
       s = File::SEPARATOR
-      full_path = explode_class_name(klass_name)
+      full_path = explode_class_name(args[0])
+      base_path = settings.root_folder_path
       file_name = "#{full_path.pop}.rb"
       FileUtils.mkdir_p full_path.join(s)
       
-      File.open(root_path +s+ full_path.join(s) +s+ file_name, 'w') do |f|
+      File.open(base_path +s+ full_path.join(s) +s+ file_name, 'w') do |f|
         f.write(scaffolding)
       end
     rescue Exception => e

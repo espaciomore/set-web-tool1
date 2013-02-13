@@ -1,8 +1,8 @@
 class LocalRunTest
-  def initialize()
+  def initialize(settings, args)
     defineScopeVariable()
-    defineGlobalVariables()
-    setUpOptions()
+    defineGlobalVariables(settings)
+    setUpOptions(args)
   end
 
   def runTests()
@@ -68,31 +68,37 @@ class LocalRunTest
     #!
   end
 
-  def defineGlobalVariables()
+  def defineGlobalVariables(settings)
     #!  Define global variables
     if not File.exists?("config/settings.rb")
       system("sed -e 's/QA/DEV/g' config/settings.rb.tpl > config/settings.rb;")
     end
-
-    $validArguments = []
-    $_usingStdOutput = Config_Settings::STD_OUTPUT
-    $_machine = ''
-    $stdOutput = Lib_Tools_StdOutputProxy.new
-    $login = false
-    $user = ''
-    $runnungThread = false
-    $saveResults = false
-    $target_server = Config_Settings::TEST_SERVER
-    $target_browser = Config_Settings::TEST_BROWSER
-    $thread = false
-    $report = Lib_Tools_OverallReportsFactory.new
-    $scheduler = Lib_TaskScheduler.new
+    
+    begin
+      $settings = settings
+      $validArguments = []
+      $_usingStdOutput = Config_Settings::STD_OUTPUT
+      $_machine = ''
+      $stdOutput = Lib_Tools_StdOutputProxy.new
+      $login = false
+      $user = ''
+      $runnungThread = false
+      $saveResults = false
+      $target_server = Config_Settings::TEST_SERVER
+      $target_browser = Config_Settings::TEST_BROWSER
+      $thread = false
+      $report = Lib_Tools_OverallReportsFactory.new
+      $scheduler = Lib_TaskScheduler.new
+    rescue Exception => error
+      puts "Error while setting global variables !"
+      raise error
+    end
     #!
   end
 
-  def setUpOptions()
-    for i in 0..(ARGV.size - 1) do
-      param = ARGV[i]
+  def setUpOptions(args)
+    for i in 0..(args.size - 1) do
+      param = args[i]
       if (param != nil)
         if (!@options['--save-results'] and param == "--save-results")
           @options['--save-results'] = true
@@ -152,7 +158,7 @@ class LocalRunTest
   end
 
   def initReport()
-    $report.openReport(Config_Settings::REPORT_FOLDER_PATH + '/overall_report')
+    $report.openReport( settings.report_folder_path +'/overall_report')
   end
 
   def saveReport()
