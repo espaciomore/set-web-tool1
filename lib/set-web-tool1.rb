@@ -1,6 +1,6 @@
 begin
-  $__GEM__ = File.expand_path( File.dirname(__FILE__) )
-	require $__GEM__ +"/bootstrap.rb"
+  $__GEM__ = File.dirname(__FILE__)
+	load $__GEM__ +"/bootstrap.rb"
 rescue LoadError => error
 	raise error
 end

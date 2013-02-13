@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name        = 'set-web-tool1'
-  s.version     = '1.0.0'
-  s.date        = '2013-02-12'
+  s.version     = '1.0.1'
+  s.date        = '2013-02-13'
   s.summary     = "A Gem based on watir and selenium-webdriver"
   s.description = "A framework created  at intellisys for developing frontend user acceptance tests"
-  s.authors     = ["Manuel Cerda", "Victor Castellanos", "Evelio Fernandez", "William Cabrera"]
+  s.authors     = ["Manuel Cerda", "Victor Castellanos", "Evelio Fernandez", "William Cabrera","Kelvin de Moya"]
   s.licenses    = ["espaciomore","intellisys"]
   s.email       = 'espaciomore@gmail.com'
   s.extra_rdoc_files = [
@@ -12,23 +12,23 @@ Gem::Specification.new do |s|
     "README.md",
   ]  
   s.files       = [
-    'libs/config/constants.rb',
-    'libs/config/report_constants.rb',
-    'libs/config/settings.rb',
-    'libs/config/settings.rb.tpl',
-    'libs/modules/client_connection.rb',
-    'libs/modules/name_translator.rb',
-    'libs/tools/overall_reports_factory.rb',
-    'libs/tools/reports.rb',
-    'libs/tools/std_output_proxy.rb',
-    'libs/tools/std_output.rb',
-    'libs/tools/test_reports_factory.rb',
-    'libs/tools/watir_helper.rb',
-    'libs/acceptance_test.rb',
-    'libs/email.rb',
-    'libs/server.rb',
-    'libs/task_scheduler.rb',
-    'libs/tools.rb',
+    'lib/config/constants.rb',
+    'lib/config/report_constants.rb',
+    'lib/config/settings.rb',
+    'lib/config/settings.rb.tpl',
+    'lib/libs/modules/client_connection.rb',
+    'lib/libs/modules/name_translator.rb',
+    'lib/libs/tools/overall_reports_factory.rb',
+    'lib/libs/tools/reports.rb',
+    'lib/libs/tools/std_output_proxy.rb',
+    'lib/libs/tools/std_output.rb',
+    'lib/libs/tools/test_reports_factory.rb',
+    'lib/libs/tools/watir_helper.rb',
+    'lib/libs/acceptance_test.rb',
+    'lib/libs/email.rb',
+    'lib/libs/server.rb',
+    'lib/libs/task_scheduler.rb',
+    'lib/libs/tools.rb',
     'lib/tests/suite.rb.tpl',
     'lib/tests/suite.rb',
     'lib/tests/google/example_test.rb.tpl',
