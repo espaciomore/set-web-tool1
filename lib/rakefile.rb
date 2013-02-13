@@ -15,7 +15,8 @@ task :generate_file do
   
   dirs = [
     'config',
-    'lib',
+    'reports',
+    'sockets/reports'
     'tests/google',
     ] 
      
